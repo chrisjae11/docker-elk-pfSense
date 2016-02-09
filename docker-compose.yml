@@ -2,6 +2,7 @@ elasticsearch:
   build: elasticsearch/
   environment:
     - ES_HEAP_SIZE=1024m
+    - "TZ=America/Edmonton"
   command: elasticsearch -Des.network.host=0.0.0.0
   volumes: 
     - /etc/localtime:/etc/localtime
@@ -14,6 +15,8 @@ elasticsearch:
     - "9300:9300"
 logstash:
   build: logstash/
+  environment:
+    - "TZ=America/Edmonton"
   command: logstash -f /etc/logstash/conf.d/logstash.conf
   volumes:
     - ./logstash/config:/etc/logstash/conf.d
@@ -28,6 +31,8 @@ logstash:
     - elasticsearch
 kibana:
   build: kibana/
+  environment:
+    - "TZ=America/Edmonton"
   volumes:
     - ./kibana/config/kibana.yml:/opt/kibana/config/kibana.yml
     - /etc/localtime:/etc/localtime
