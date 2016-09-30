@@ -2,7 +2,7 @@ elasticsearch:
   build: elasticsearch/
   environment:
     - ES_HEAP_SIZE=1024m
-    - "TZ=America/Edmonton"
+    - "TZ=America/Vancouver"
   command: elasticsearch -Des.network.host=0.0.0.0
   volumes: 
     - /etc/localtime:/etc/localtime
