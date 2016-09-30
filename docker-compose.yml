@@ -16,7 +16,7 @@ elasticsearch:
 logstash:
   build: logstash/
   environment:
-    - "TZ=America/Edmonton"
+    - "TZ=America/Vancouver"
   command: logstash -f /etc/logstash/conf.d/logstash.conf
   volumes:
     - ./logstash/config:/etc/logstash/conf.d
@@ -32,7 +32,7 @@ logstash:
 kibana:
   build: kibana/
   environment:
-    - "TZ=America/Edmonton"
+    - "TZ=America/Vancouver"
   volumes:
     - ./kibana/config/kibana.yml:/opt/kibana/config/kibana.yml
     - /etc/localtime:/etc/localtime
